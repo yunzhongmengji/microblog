@@ -3,6 +3,8 @@ import os
 from logging.handlers import RotatingFileHandler
 
 from flask import Flask  # 从flask包中导入Flask类
+from flask_mail import Mail
+
 from config import Config  # 从config模块导入Config类
 
 from flask_sqlalchemy import SQLAlchemy  # 丛包中导入类
@@ -15,6 +17,9 @@ app.config.from_object(Config)
 
 login = LoginManager(app)
 login.login_view = 'login'
+
+mail = Mail(app)
+
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
