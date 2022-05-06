@@ -5,6 +5,7 @@ from logging.handlers import RotatingFileHandler
 from flask import Flask  # 从flask包中导入Flask类
 from flask_bootstrap import Bootstrap
 from flask_mail import Mail
+from flask_moment import Moment
 
 from config import Config  # 从config模块导入Config类
 
@@ -21,6 +22,7 @@ login.login_view = 'login'
 
 mail = Mail(app)
 bootstrap = Bootstrap(app)
+moment = Moment(app)
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
