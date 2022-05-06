@@ -1,4 +1,7 @@
-2022-05-04 19:50:57,876 ERROR: Exception on /user/zhangsan [GET] [in D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py:1455]
+2022-05-05 15:28:23,437 INFO: Microblog startup [in D:\codeproject\PycharmProjects\microblog\app\__init__.py:36]
+2022-05-05 15:29:06,148 INFO: Microblog startup [in D:\codeproject\PycharmProjects\microblog\app\__init__.py:36]
+2022-05-05 20:49:15,366 INFO: Microblog startup [in D:\codeproject\PycharmProjects\microblog\app\__init__.py:41]
+2022-05-05 20:49:49,030 ERROR: Exception on /reset_password_request [POST] [in D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py:1455]
 Traceback (most recent call last):
   File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py", line 2077, in wsgi_app
     response = self.full_dispatch_request()
@@ -8,29 +11,11 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py", line 1509, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask_login\utils.py", line 303, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-  File "D:\codeproject\PycharmProjects\microblog\app\routes.py", line 79, in user
-    return render_template('user.html', user=user, posts=posts, form=form)
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\templating.py", line 149, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\jinja2\environment.py", line 1071, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\jinja2\environment.py", line 1000, in get_template
-    return self._load_template(name, globals)
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\jinja2\environment.py", line 959, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\jinja2\loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\jinja2\environment.py", line 758, in compile
-    self.handle_exception(source=source_hint)
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\jinja2\environment.py", line 926, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "D:\codeproject\PycharmProjects\microblog\app\templates\user.html", line 32, in template
-    <form action="{{ url_for('unfollow', username=user.username }}" method="post">
-jinja2.exceptions.TemplateSyntaxError: expected token ',', got 'unfollow'
-2022-05-04 19:51:41,402 INFO: Microblog startup [in D:\codeproject\PycharmProjects\microblog\app\__init__.py:36]
-2022-05-04 19:51:42,720 ERROR: Exception on /user/zhangsan [GET] [in D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py:1455]
+  File "D:\codeproject\PycharmProjects\microblog\app\routes.py", line 165, in reset_password_request
+    send_password_reset_email(user)
+NameError: name 'send_password_reset_email' is not defined
+2022-05-05 20:50:03,283 INFO: Microblog startup [in D:\codeproject\PycharmProjects\microblog\app\__init__.py:41]
+2022-05-05 20:50:05,362 ERROR: Exception on /reset_password_request [POST] [in D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py:1455]
 Traceback (most recent call last):
   File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py", line 2077, in wsgi_app
     response = self.full_dispatch_request()
@@ -40,32 +25,12 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py", line 1509, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask_login\utils.py", line 303, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-  File "D:\codeproject\PycharmProjects\microblog\app\routes.py", line 79, in user
-    return render_template('user.html', user=user, posts=posts, form=form)
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\templating.py", line 149, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\jinja2\environment.py", line 1071, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\jinja2\environment.py", line 1000, in get_template
-    return self._load_template(name, globals)
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\jinja2\environment.py", line 959, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\jinja2\loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\jinja2\environment.py", line 758, in compile
-    self.handle_exception(source=source_hint)
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\jinja2\environment.py", line 926, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "D:\codeproject\PycharmProjects\microblog\app\templates\user.html", line 32, in template
-    <form action="{{ url_for('unfollow', username=user.username) }}" method="post">
-jinja2.exceptions.TemplateSyntaxError: expected token ',', got 'unfollow'
-2022-05-04 19:52:39,869 INFO: Microblog startup [in D:\codeproject\PycharmProjects\microblog\app\__init__.py:36]
-2022-05-04 20:13:06,607 INFO: Microblog startup [in D:\codeproject\PycharmProjects\microblog\app\__init__.py:36]
-2022-05-04 20:15:23,564 INFO: Microblog startup [in D:\codeproject\PycharmProjects\microblog\app\__init__.py:36]
-2022-05-04 21:37:42,021 INFO: Microblog startup [in D:\codeproject\PycharmProjects\microblog\app\__init__.py:36]
-2022-05-04 21:38:32,943 ERROR: Exception on /index [GET] [in D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py:1455]
+  File "D:\codeproject\PycharmProjects\microblog\app\routes.py", line 166, in reset_password_request
+    send_password_reset_email(user)
+  File "D:\codeproject\PycharmProjects\microblog\app\email.py", line 14, in send_password_reset_email
+    token = user.get_reset_password_token()
+AttributeError: 'User' object has no attribute 'get_reset_password_token'
+2022-05-05 20:50:08,854 ERROR: Exception on /reset_password_request [POST] [in D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py:1455]
 Traceback (most recent call last):
   File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py", line 2077, in wsgi_app
     response = self.full_dispatch_request()
@@ -75,16 +40,13 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py", line 1509, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask_login\utils.py", line 303, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-  File "D:\codeproject\PycharmProjects\microblog\app\routes.py", line 25, in index
-    posts = current_user.followed_posts().all()
-  File "D:\codeproject\PycharmProjects\microblog\app\models.py", line 63, in followed_posts
-    return followed.union(own).order_by(Post.timestamp.desc())
-AttributeError: type object 'Post' has no attribute 'timestamp'
-2022-05-04 21:39:53,787 INFO: Microblog startup [in D:\codeproject\PycharmProjects\microblog\app\__init__.py:36]
-2022-05-04 21:45:27,441 INFO: Microblog startup [in D:\codeproject\PycharmProjects\microblog\app\__init__.py:36]
-2022-05-04 21:45:31,288 ERROR: Exception on /index [GET] [in D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py:1455]
+  File "D:\codeproject\PycharmProjects\microblog\app\routes.py", line 166, in reset_password_request
+    send_password_reset_email(user)
+  File "D:\codeproject\PycharmProjects\microblog\app\email.py", line 14, in send_password_reset_email
+    token = user.get_reset_password_token()
+AttributeError: 'User' object has no attribute 'get_reset_password_token'
+2022-05-05 21:03:38,802 INFO: Microblog startup [in D:\codeproject\PycharmProjects\microblog\app\__init__.py:41]
+2022-05-05 21:03:46,639 ERROR: Exception on /reset_password_request [POST] [in D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py:1455]
 Traceback (most recent call last):
   File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py", line 2077, in wsgi_app
     response = self.full_dispatch_request()
@@ -94,25 +56,65 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py", line 1509, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask_login\utils.py", line 303, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-  File "D:\codeproject\PycharmProjects\microblog\app\routes.py", line 26, in index
-    return render_template('index.html', title='Home', posts=posts)
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\templating.py", line 148, in render_template
-    return _render(
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\templating.py", line 128, in _render
-    rv = template.render(context)
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\jinja2\environment.py", line 1291, in render
-    self.environment.handle_exception()
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\jinja2\environment.py", line 926, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "D:\codeproject\PycharmProjects\microblog\app\templates\index.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "D:\codeproject\PycharmProjects\microblog\app\templates\base.html", line 30, in top-level template code
-    {% block content %}
-  File "D:\codeproject\PycharmProjects\microblog\app\templates\index.html", line 6, in block 'content'
-    {{ form.hidden_tag() }}
-  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\jinja2\environment.py", line 475, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'form' is undefined
-2022-05-04 21:46:03,495 INFO: Microblog startup [in D:\codeproject\PycharmProjects\microblog\app\__init__.py:36]
+  File "D:\codeproject\PycharmProjects\microblog\app\routes.py", line 166, in reset_password_request
+    send_password_reset_email(user)
+  File "D:\codeproject\PycharmProjects\microblog\app\email.py", line 14, in send_password_reset_email
+    token = user.get_reset_password_token()
+  File "D:\codeproject\PycharmProjects\microblog\app\models.py", line 69, in get_reset_password_token
+    {'reset_password':self.id, 'exp': time() + expires_in},
+TypeError: unsupported operand type(s) for +: 'datetime.time' and 'int'
+2022-05-05 21:05:33,555 INFO: Microblog startup [in D:\codeproject\PycharmProjects\microblog\app\__init__.py:41]
+2022-05-05 21:05:37,227 ERROR: Exception on /reset_password_request [POST] [in D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py:1455]
+Traceback (most recent call last):
+  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\codeproject\PycharmProjects\microblog\app\routes.py", line 166, in reset_password_request
+    send_password_reset_email(user)
+  File "D:\codeproject\PycharmProjects\microblog\app\email.py", line 14, in send_password_reset_email
+    token = user.get_reset_password_token()
+  File "D:\codeproject\PycharmProjects\microblog\app\models.py", line 69, in get_reset_password_token
+    return jwt.encode(
+AttributeError: 'str' object has no attribute 'decode'
+2022-05-05 21:06:03,351 INFO: Microblog startup [in D:\codeproject\PycharmProjects\microblog\app\__init__.py:41]
+2022-05-05 21:06:05,748 ERROR: Exception on /reset_password_request [POST] [in D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py:1455]
+Traceback (most recent call last):
+  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\codeproject\PycharmProjects\microblog\app\routes.py", line 166, in reset_password_request
+    send_password_reset_email(user)
+  File "D:\codeproject\PycharmProjects\microblog\app\email.py", line 14, in send_password_reset_email
+    token = user.get_reset_password_token()
+  File "D:\codeproject\PycharmProjects\microblog\app\models.py", line 69, in get_reset_password_token
+    return jwt.encode(
+AttributeError: 'str' object has no attribute 'decode'
+2022-05-05 21:09:45,446 INFO: Microblog startup [in D:\codeproject\PycharmProjects\microblog\app\__init__.py:41]
+2022-05-05 21:09:52,764 ERROR: Exception on /reset_password_request [POST] [in D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py:1455]
+Traceback (most recent call last):
+  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\download\anaconda3\envs\pytorch\lib\site-packages\flask\app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\codeproject\PycharmProjects\microblog\app\routes.py", line 166, in reset_password_request
+    send_password_reset_email(user)
+  File "D:\codeproject\PycharmProjects\microblog\app\email.py", line 14, in send_password_reset_email
+    token = user.get_reset_password_token()
+  File "D:\codeproject\PycharmProjects\microblog\app\models.py", line 69, in get_reset_password_token
+    return jwt.encode(
+AttributeError: 'str' object has no attribute 'decode'
+2022-05-05 21:21:25,608 INFO: Microblog startup [in D:\codeproject\PycharmProjects\microblog\app\__init__.py:41]
